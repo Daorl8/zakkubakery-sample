@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>자꾸베이커리 Zakku Bakery | 서울 강북구 미아 두바이쫀득쿠키 · 구움과자</title>
+<meta name="description" content="자꾸 자꾸 생각나는 맛있는 베이커리. 좋은 재료로 기본을 지켜 매일 굽는 서울 강북구 디저트 가게. 두바이 쫀득쿠키 · 두바이 모찌 · 마카롱 · 구움과자. 월~토 13:00~20:00, 일요일 휴무." />
+<link rel="canonical" href="https://zakkubakery-sample.lgt3232.workers.dev/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="자꾸베이커리" />
+<meta property="og:title" content="자꾸베이커리 Zakku Bakery" />
+<meta property="og:description" content="자꾸 자꾸 생각나는 맛있는 베이커리. 서울 강북구 도봉로30길 22, 노란 가게." />
+<meta property="og:url" content="https://zakkubakery-sample.lgt3232.workers.dev/" />
+<meta property="og:image" content="https://zakkubakery-sample.lgt3232.workers.dev/og-zakku.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="theme-color" content="#F4F4F4" />
+<link rel="icon" href="favicon.png" type="image/png" />
+<!-- 시안 도메인 = zakkubakery-sample.lgt3232.workers.dev. 고객 인계 시 grep lgt3232 → canonical·og:url·og:image·JSON-LD url/image 5곳 치환 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "자꾸베이커리 Zakku Bakery",
+  "url": "https://zakkubakery-sample.lgt3232.workers.dev/",
+  "image": "https://zakkubakery-sample.lgt3232.workers.dev/og-zakku.jpg",
+  "address": { "@type": "PostalAddress", "streetAddress": "도봉로30길 22 1층", "addressLocality": "강북구", "addressRegion": "서울특별시", "addressCountry": "KR" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "13:00", "closes": "20:00" }
+  ],
+  "sameAs": ["https://www.instagram.com/zakku_bakery/", "https://smartstore.naver.com/d_super", "https://pf.kakao.com/_tLrhK"]
+}
+</script>
+<style>
+@font-face{ font-family:"ZK Serif"; font-weight:400; font-display:swap; src:url("zk-gowun-400.woff2") format("woff2"); }
+@font-face{ font-family:"ZK Serif"; font-weight:700; font-display:swap; src:url("zk-gowun-700.woff2") format("woff2"); }
+@font-face{ font-family:"ZK Sans"; font-weight:400 700; font-display:swap; src:url("zk-pretendard.woff2") format("woff2"); }
+
+/* 토큰: 바탕은 중성(R=G=B), 글자는 곰돌이 테두리 갈색 계열, 노랑은 앞치마 색으로 버튼·작은 표시에만 */
+:root{
+  --bg:#F4F4F4;          /* 중성 회백 */
+  --paper:#FFFFFF;
+  --ink:#4A301A;         /* 짙은 갈색 · bg 대비 11.0:1 */
+  --brown:#8C5B30;       /* 곰돌이 테두리 실측 · bg 대비 5.2:1 */
+  --soft:#666666;        /* 보조 글자 · bg 대비 5.2:1 */
+  --yel:#FAD773;         /* 앞치마 노랑 실측 · ink 대비 8.7:1 */
+  --line:#DCDCDC;
+  --serif:"ZK Serif","ZK Sans",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --sans:"ZK Sans",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --wrap:1120px;
+}
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.75; word-break:keep-all; overflow-x:hidden; }
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3{ font-family:var(--serif); font-weight:700; margin:0; letter-spacing:-.01em; }
+p{ margin:0; }
+.wrap{ width:min(100% - 40px, var(--wrap)); margin:0 auto; }
+:focus-visible{ outline:2px solid var(--brown); outline-offset:3px; }
+.m-br{ display:none; }
+.d-br{ display:none; }
+@media (min-width:768px){ .d-br{ display:inline; } }
+@media (max-width:767px){ .m-br{ display:inline; } }
+
+/* 라벨: 가격표처럼 작은 대문자 + 한글 */
+.label{ display:flex; align-items:baseline; gap:10px; font-family:var(--serif); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--brown); }
+.label .k{ font-family:var(--sans); letter-spacing:0; text-transform:none; font-size:.8rem; color:var(--soft); }
+.sec{ padding:72px 0; }
+@media (min-width:768px){ .sec{ padding:110px 0; } }
+.head h2{ font-size:clamp(1.6rem,4.2vw,2.4rem); line-height:1.35; margin-top:14px; }
+.head p{ color:var(--soft); margin-top:14px; max-width:34em; }
+
+/* 버튼 */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:50px; padding:0 20px; border:1px solid var(--ink); border-radius:3px; font-weight:600; font-size:.95rem; transition:background .2s ease, color .2s ease; }
+.btn.y{ background:var(--yel); border-color:var(--yel); color:var(--ink); }
+.btn.k{ background:var(--ink); color:var(--paper); }
+.btn.o{ background:transparent; }
+.btn small{ font-weight:400; font-size:.8rem; opacity:.75; }
+@media (hover:hover){ .btn.o:hover{ background:var(--ink); color:var(--paper); } .btn.k:hover{ background:var(--brown); border-color:var(--brown); } .btn.y:hover{ background:#F3CB55; border-color:#F3CB55; } }
+
+/* 헤더 */
+.site-head{ position:sticky; top:0; z-index:50; background:rgba(244,244,244,.94); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.site-head .wrap{ display:flex; align-items:center; justify-content:space-between; height:66px; gap:16px; }
+.brand{ display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:700; font-size:1.05rem; }
+.brand img{ width:44px; height:auto; }
+.brand small{ display:block; font-family:var(--sans); font-weight:400; font-size:.72rem; color:var(--soft); line-height:1.2; }
+.brand span{ line-height:1.2; }
+.nav{ display:none; gap:26px; font-size:.9rem; }
+@media (min-width:900px){ .nav{ display:flex; } }
+@media (hover:hover){ .nav a:hover{ color:var(--brown); } }
+.site-head .btn{ min-height:40px; padding:0 14px; font-size:.86rem; }
+
+/* 히어로: 왼쪽 글, 오른쪽 곰돌이 라벨 카드 */
+.hero{ padding:44px 0 64px; }
+.hero .wrap{ display:grid; gap:40px; }
+@media (min-width:900px){ .hero{ padding:80px 0 100px; } .hero .wrap{ grid-template-columns:1.1fr .9fr; align-items:center; gap:64px; } }
+.hero h1{ font-size:clamp(2rem,6.4vw,3.4rem); line-height:1.3; margin-top:18px; }
+.hero .lead{ margin-top:20px; color:var(--soft); font-size:1.02rem; max-width:28em; }
+.hero .cta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:30px; }
+.hero .hours{ margin-top:22px; font-size:.88rem; color:var(--soft); }
+.hero .hours b{ color:var(--ink); font-weight:600; }
+.card{ background:var(--paper); border:1px solid var(--line); border-radius:4px; }
+.bear-card{ position:relative; text-align:center; }
+.bear-card img{ width:min(62%,300px); margin:0 auto; }
+.bear-card .strip{ display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding:14px 4px 0; border-top:1px solid var(--ink); font-family:var(--serif); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; }
+.bear-card .strip .k{ font-family:var(--sans); letter-spacing:0; text-transform:none; color:var(--soft); font-size:.8rem; }
+
+/* 시그니처 */
+.sig{ display:grid; gap:28px; margin-top:40px; }
+@media (min-width:900px){ .sig{ grid-template-columns:1fr 1fr; gap:56px; align-items:center; } }
+.sig .main img{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:4px; }
+.sig .tag{ display:inline-block; padding:2px 10px; background:var(--yel); font-family:var(--serif); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; border-radius:2px; }
+.sig h3{ font-size:clamp(1.5rem,3.6vw,2rem); margin-top:16px; }
+.sig h3 small{ display:block; font-family:var(--sans); font-weight:400; font-size:.9rem; color:var(--soft); margin-top:6px; letter-spacing:0; }
+.sig .copy{ margin-top:22px; padding-top:22px; border-top:1px solid var(--line); display:grid; gap:10px; }
+.sig .copy .q{ font-family:var(--serif); font-size:1.15rem; }
+.sig .copy p{ color:var(--soft); }
+.sig .duo{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:26px; }
+.sig .duo img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px; }
+
+/* 메뉴: 같은 비율 사진 + 가격표 같은 라벨 */
+.menu-sec{ background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px 12px; margin-top:40px; }
+@media (min-width:900px){ .grid{ grid-template-columns:repeat(4,1fr); gap:30px 20px; } }
+.item img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px; }
+.item .tagline{ display:flex; align-items:baseline; gap:8px; margin-top:12px; padding-top:10px; border-top:1px solid var(--ink); }
+.item .no{ font-family:var(--serif); font-size:.78rem; color:var(--brown); }
+.item h3{ font-size:1.02rem; line-height:1.4; }
+.item .en{ display:block; font-family:var(--serif); font-weight:400; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin-top:2px; }
+.menu-note{ margin-top:34px; font-size:.9rem; color:var(--soft); }
+
+/* 매일 굽습니다 */
+.daily{ display:grid; gap:30px; }
+@media (min-width:900px){ .daily{ grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center; } }
+.daily .quote{ font-family:var(--serif); font-size:clamp(1.3rem,3.2vw,1.75rem); line-height:1.6; margin-top:18px; }
+.daily .pics{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.daily .pics img{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:4px; }
+
+/* 주문 채널 */
+.order{ display:grid; gap:30px; margin-top:40px; }
+@media (min-width:900px){ .order{ grid-template-columns:1.2fr .8fr; gap:48px; align-items:start; } }
+.channels{ border-top:1px solid var(--ink); }
+.channels a{ display:grid; grid-template-columns:40px 1fr auto; align-items:center; gap:14px; padding:20px 4px; border-bottom:1px solid var(--line); transition:background .2s ease; }
+.channels .ic{ width:40px; height:40px; border-radius:50%; display:grid; place-items:center; background:var(--bg); }
+.channels .ic svg{ width:20px; height:20px; }
+.channels b{ display:block; font-weight:600; font-size:1.02rem; }
+.channels span.d{ display:block; font-size:.86rem; color:var(--soft); }
+.channels .go{ font-family:var(--serif); font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--brown); }
+@media (hover:hover){ .channels a:hover{ background:var(--paper); } }
+.order .note{ margin-top:16px; font-size:.86rem; color:var(--soft); }
+.gift img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:4px; }
+.gift p{ margin-top:14px; font-size:.92rem; }
+.gift p small{ display:block; color:var(--soft); font-size:.84rem; }
+
+/* 오시는 길 */
+.visit-sec{ background:var(--paper); border-top:1px solid var(--line); }
+.visit{ display:grid; gap:36px; margin-top:40px; }
+@media (min-width:900px){ .visit{ grid-template-columns:1fr 1fr; gap:56px; } }
+.info{ margin:0; border-top:1px solid var(--ink); }
+.info > div{ display:grid; grid-template-columns:86px 1fr; gap:14px; padding:16px 0; border-bottom:1px solid var(--line); }
+.info dt{ font-family:var(--serif); font-weight:700; font-size:.9rem; }
+.info dd{ margin:0; font-size:.94rem; }
+.info dd small{ display:block; color:var(--soft); font-size:.84rem; margin-top:4px; }
+.info dd ul{ margin:0; padding:0; list-style:none; display:grid; gap:8px; }
+.mapframe{ width:100%; height:340px; border:1px solid var(--line); border-radius:4px; }
+@media (min-width:900px){ .mapframe{ height:100%; min-height:460px; } }
+.visit .links{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+
+/* 푸터 */
+.foot{ padding:56px 0 120px; text-align:center; }
+@media (min-width:900px){ .foot{ padding:72px 0; } }
+.foot img{ width:120px; margin:0 auto; }
+.foot .bye{ font-family:var(--serif); font-size:1.15rem; margin-top:16px; }
+.foot .meta{ margin-top:14px; font-size:.82rem; color:var(--soft); }
+
+/* 모바일 하단 바: 스토어 · 카톡 · 인스타 */
+.quick{ position:fixed; left:0; right:0; bottom:0; z-index:60; display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:6px; padding:8px 10px calc(8px + env(safe-area-inset-bottom)); background:rgba(244,244,244,.96); border-top:1px solid var(--line); }
+.quick a{ display:flex; align-items:center; justify-content:center; min-height:46px; border-radius:3px; font-size:.86rem; font-weight:600; border:1px solid var(--ink); }
+.quick a.y{ background:var(--yel); border-color:var(--yel); }
+@media (min-width:900px){ .quick{ display:none; } }
+
+/* 리빌: setInterval 구동 */
+.js .reveal{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay:var(--d,0s); }
+.js .reveal.in{ opacity:1; transform:none; }
+@media print{ .js .reveal{ opacity:1; transform:none; } }
+</style>
+<noscript><style>.reveal{ opacity:1 !important; transform:none !important; }</style></noscript>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="자꾸베이커리 처음으로"><img src="zk-logo.webp" alt="Zakku Bakery 곰돌이 로고" width="600" height="530" /><span>자꾸베이커리<small>Zakku Bakery</small></span></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="#signature">Signature</a><a href="#menu">Menu</a><a href="#order">Order</a><a href="#visit">Visit</a></nav>
+    <a class="btn y" href="https://smartstore.naver.com/d_super" target="_blank" rel="noopener">스마트스토어</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="label">Zakku Bakery<span class="k">서울 강북구 · 미아 노란 가게</span></p>
+        <h1>자꾸 자꾸 생각나는<br />맛있는 베이커리</h1>
+        <p class="lead">두바이 쫀득쿠키와 두바이 모찌, 마카롱, 구움과자를<br class="d-br" /> 강북구 미아 골목 안 노란 가게에서 구워요.</p>
+        <div class="cta">
+          <a class="btn y" href="https://smartstore.naver.com/d_super" target="_blank" rel="noopener">스마트스토어 <small>픽업 · 택배</small></a>
+          <a class="btn k" href="https://pf.kakao.com/_tLrhK/chat" target="_blank" rel="noopener">카카오톡 채널</a>
+          <a class="btn o" href="https://www.instagram.com/zakku_bakery/" target="_blank" rel="noopener">인스타그램</a>
+        </div>
+        <p class="hours"><b>월~토 13:00~20:00</b> · 일요일 정기휴무</p>
+      </div>
+      <div class="bear-card reveal" style="--d:.12s">
+        <img src="zk-bear.webp" alt="셰프 모자에 노란 앞치마를 입고 쿠키를 든 채 앉아 있는 자꾸베이커리 곰돌이" width="548" height="816" />
+        <div class="strip"><span>Baked Daily</span><span class="k">매일 굽는 디저트</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="signature" aria-labelledby="sig-h" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">Signature<span class="k">대표 디저트</span></p>
+        <h2 id="sig-h">쫀득 쫀득한 겉면,<br />바삭한 카다이프</h2>
+      </div>
+      <div class="sig">
+        <figure class="main reveal" style="margin:0"><img loading="lazy" src="zk-dubai-cookie.webp" alt="반으로 가른 두바이 쫀득쿠키, 초콜릿 겉면 안에 피스타치오 카다이프가 가득한 단면" width="800" height="1000" /></figure>
+        <div class="reveal" style="--d:.1s">
+          <span class="tag">Signature</span>
+          <h3>두바이 쫀득쿠키<small>Dubai Chewy Cookie · 두쫀쿠</small></h3>
+          <div class="copy">
+            <p class="q">겉쫀속바의 정석!</p>
+            <p>피스타치오가 듬뿍 들어가 고소한 풍미가 가득합니다.<br />쫀득 + 바삭 + 고소함의 환상적인 조합!</p>
+          </div>
+          <div class="duo">
+            <img loading="lazy" src="zk-pistachio.webp" alt="장갑 낀 손에 가득 담긴 피스타치오" width="800" height="1000" />
+            <img loading="lazy" src="zk-filling.webp" alt="틀에 채운 피스타치오 카다이프 필링" width="800" height="1000" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec menu-sec" id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">Menu<span class="k">자꾸의 디저트</span></p>
+        <h2 id="menu-h">오늘도 굽는 것들</h2>
+      </div>
+      <div class="grid">
+        <div class="item reveal"><img loading="lazy" src="zk-mochi.webp" alt="장갑 낀 손에 든 반으로 가른 두바이 모찌" width="800" height="800" /><div class="tagline"><span class="no">01</span><h3>두바이 모찌<span class="en">Dubai Mochi</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-brownie.webp" alt="피스타치오 층이 들어간 초콜릿 디저트 단면" width="800" height="800" /><div class="tagline"><span class="no">02</span><h3>두바이 초콜릿<span class="en">Dubai Chocolate</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-spread.webp" alt="통에 담긴 피스타치오 스프레드" width="800" height="1000" /><div class="tagline"><span class="no">03</span><h3>스프레드<span class="en">Spread</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-macaron.webp" alt="개별 포장된 분홍 · 노랑 마카롱" width="800" height="800" /><div class="tagline"><span class="no">04</span><h3>마카롱<span class="en">Macaron</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-financier.webp" alt="여러 가지 맛의 구움과자가 줄지어 놓인 모습" width="800" height="1000" /><div class="tagline"><span class="no">05</span><h3>구움과자<span class="en">Baked Sweets</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-cookie.webp" alt="마시멜로와 초콜릿이 들어간 두툼한 쿠키" width="800" height="800" /><div class="tagline"><span class="no">06</span><h3>쿠키<span class="en">Cookie</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-basque.webp" alt="리본을 두른 바스크 치즈케이크" width="800" height="800" /><div class="tagline"><span class="no">07</span><h3>곰도리 바치케<span class="en">Basque Cheesecake</span></h3></div></div>
+        <div class="item reveal"><img loading="lazy" src="zk-gift.webp" alt="리본으로 묶은 디저트 선물 상자" width="800" height="1000" /><div class="tagline"><span class="no">08</span><h3>답례 · 단체<span class="en">Gift Box</span></h3></div></div>
+      </div>
+      <p class="menu-note reveal">가격과 그날 준비된 디저트는 스마트스토어와 인스타그램에서 확인해 주세요.</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="daily-h">
+    <div class="wrap daily">
+      <div class="reveal">
+        <p class="label" id="daily-h">Every Day<span class="k">매일 굽습니다</span></p>
+        <p class="quote">좋은 재료로 기본을 지켜<br />신선하고 맛있는 디저트들을<br />매일 굽습니다.</p>
+      </div>
+      <div class="pics reveal" style="--d:.1s">
+        <img loading="lazy" src="zk-oven.webp" alt="선반 가득 구워져 나온 디저트" width="800" height="1000" />
+        <img loading="lazy" src="zk-baking.webp" alt="오븐 안에서 구워지는 분홍 쿠키" width="800" height="1000" />
+        <img loading="lazy" src="zk-mochi-tray.webp" alt="금색 트레이에 줄지어 놓인 모찌" width="800" height="1000" />
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="order" aria-labelledby="order-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">Order<span class="k">주문 · 문의</span></p>
+        <h2 id="order-h">픽업 예약과 택배는<br />스마트스토어에서</h2>
+      </div>
+      <div class="order">
+        <div class="reveal">
+          <div class="channels">
+            <a href="https://smartstore.naver.com/d_super" target="_blank" rel="noopener">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#4A301A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+              <span><b>스마트스토어</b><span class="d">픽업 예약 · 택배 주문</span></span>
+              <span class="go">Shop</span>
+            </a>
+            <a href="https://pf.kakao.com/_tLrhK/chat" target="_blank" rel="noopener">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#4A301A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-4.8 0-8.5 3-8.5 6.7 0 2.4 1.5 4.4 3.8 5.6L6.6 20l3.9-2.6c.5.1 1 .1 1.5.1 4.8 0 8.5-3 8.5-6.8S16.8 4 12 4z"/></svg></span>
+              <span><b>카카오톡 채널</b><span class="d">상담 · 답례 · 단체 문의</span></span>
+              <span class="go">Chat</span>
+            </a>
+            <a href="https://www.instagram.com/zakku_bakery/" target="_blank" rel="noopener">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#4A301A" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.9" cy="7.1" r=".9" fill="#4A301A" stroke="none"/></svg></span>
+              <span><b>인스타그램</b><span class="d">@zakku_bakery · 품절 · 휴무 공지</span></span>
+              <span class="go">Follow</span>
+            </a>
+          </div>
+          <p class="note">인스타그램 DM은 확인이 어려워요. 문의는 카카오톡 채널로 남겨 주세요.</p>
+        </div>
+        <div class="gift reveal" style="--d:.1s">
+          <img loading="lazy" src="zk-sandwich.webp" alt="여러 가지 색의 크림을 채운 조개 모양 디저트" width="800" height="1000" />
+          <p>디저트 품절 시 인스타그램 공지 후 마감됩니다.<small>방문 전 인스타그램을 한 번 확인해 주세요.</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec visit-sec" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">Visit<span class="k">오시는 길</span></p>
+        <h2 id="visit-h">골목 안 노란 가게</h2>
+      </div>
+      <div class="visit">
+        <div class="reveal">
+          <dl class="info">
+            <div><dt>주소</dt><dd>서울 강북구 도봉로30길 22 1층<small>미아역 4번 출구에서 약 700m</small></dd></div>
+            <div><dt>영업시간</dt><dd>월~토 13:00~20:00<small>일요일 정기휴무 · 디저트 품절 시 인스타그램 공지 후 마감</small></dd></div>
+            <div><dt>찾아오는 길</dt><dd><ul>
+              <li>지하철 이용 시, 미아역 4번 출구에서 미아사거리 방면으로 7분 정도 걸어오시면 농협과 CU편의점이 있어요! 그 사이 골목길로 들어오시면 보이시는 노란가게입니다!</li>
+              <li>버스 이용 시, 도봉세무서 하차 후 CU편의점 골목길로 들어오시면 됩니다!</li>
+              <li>자차 이용 시, 일방 통행길이라 주택가로 돌아서 오실거에요! 주택가가 나온다해서 당황하지 마시고 쭉 따라오시면 세탁소 바로 옆 노란가게입니다 : )</li>
+            </ul></dd></div>
+          </dl>
+          <div class="links">
+            <a class="btn k" href="https://map.naver.com/p/entry/place/1820127948" target="_blank" rel="noopener">네이버 지도 <small>길찾기</small></a>
+            <a class="btn o" href="https://pf.kakao.com/_tLrhK/chat" target="_blank" rel="noopener">카카오톡 문의</a>
+          </div>
+        </div>
+        <iframe class="mapframe reveal" title="자꾸베이커리 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%B6%81%EA%B5%AC%20%EB%8F%84%EB%B4%89%EB%A1%9C30%EA%B8%B8%2022&amp;z=17&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="zk-logo.webp" alt="Zakku Bakery" width="600" height="530" loading="lazy" />
+    <p class="bye">매일 매일 달달한 하루 보내세요!</p>
+    <p class="meta">자꾸베이커리 · 서울 강북구 도봉로30길 22 1층 · 월~토 13:00~20:00 (일 휴무)<br />© Zakku Bakery</p>
+  </div>
+</footer>
+
+<div class="quick" aria-label="빠른 주문 · 문의">
+  <a class="y" href="https://smartstore.naver.com/d_super" target="_blank" rel="noopener">스마트스토어</a>
+  <a href="https://pf.kakao.com/_tLrhK/chat" target="_blank" rel="noopener">카카오톡</a>
+  <a href="https://www.instagram.com/zakku_bakery/" target="_blank" rel="noopener">인스타그램</a>
+</div>
+
+<script>
+(function(){
+  /* 리빌: setInterval로 위치 확인 (rAF · IO 대신) */
+  var pending=[].slice.call(document.querySelectorAll('.reveal'));
+  pending.forEach(function(el){
+    var sib=[].slice.call(el.parentNode.children).filter(function(c){ return c.classList.contains('reveal'); });
+    if(sib.length>1 && !el.style.getPropertyValue('--d')){ el.style.setProperty('--d', (Math.min(sib.indexOf(el),5)*0.07)+'s'); }
+  });
+  var t=setInterval(function(){
+    if(!pending.length){ clearInterval(t); return; }
+    if(window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4){
+      pending.forEach(function(el){ el.classList.add('in'); }); pending=[]; return;
+    }
+    var line=window.innerHeight*0.9;
+    pending=pending.filter(function(el){
+      if(el.getBoundingClientRect().top < line){ el.classList.add('in'); return false; }
+      return true;
+    });
+  },120);
+
+  /* 앵커 스크롤: setInterval */
+  var head=document.querySelector('.site-head');
+  [].forEach.call(document.querySelectorAll('a[href^="#"]'),function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); var el=id==='#top'?document.body:document.querySelector(id);
+      if(!el) return; e.preventDefault();
+      var start=window.pageYOffset, end=id==='#top'?0:el.getBoundingClientRect().top+start-(head?head.offsetHeight:0)+1;
+      var t0=Date.now(), dur=520;
+      var iv=setInterval(function(){
+        var p=Math.min((Date.now()-t0)/dur,1), e2=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+        window.scrollTo(0,start+(end-start)*e2);
+        if(p>=1) clearInterval(iv);
+      },16);
+    });
+  });
+})();
+</script>
+</body>
+</html>
