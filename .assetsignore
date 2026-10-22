@@ -1,0 +1,15 @@
+.git
+.git/**
+wrangler.toml
+.assetsignore
+README.md
+CHANGELOG.md
+STRUCTURE.md
+img
+img/**
+index_*.html
+_deploy
+_deploy/**
+# 투명 원본 png (웹은 webp)
+zk-bear.png
+zk-logo.png
